@@ -1,0 +1,58 @@
+version: "3.1"
+stories:
+  - story: say goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+  - story: with_symptom
+    steps:
+      - intent: with_has_symptom
+      - action: question_parser
+  - story: with_cause
+    steps:
+      - intent: with_cause
+      - action: question_parser
+  - story: with_acompany
+    steps:
+      - intent: with_acompany_with
+      - action: question_parser
+  - story: with_food
+    steps:
+      - intent: with_Food
+      - action: question_parser
+  - story: with_drug
+    steps:
+      - intent: with_Drug
+      - action: question_parser
+  - story: with_prevent
+    steps:
+      - intent: with_prevent
+      - action: question_parser
+  - story: with_lasttime
+    steps:
+      - intent: with_cure_lasttime
+      - action: question_parser
+  - story: with_cureway
+    steps:
+      - intent: with_cure_way
+      - action: question_parser
+  - story: with_cureprob
+    steps:
+      - intent: with_cured_prob
+      - action: question_parser
+  - story: with_easyget
+    steps:
+      - intent: with_easy_get
+      - action: question_parser
+  - story: with_check
+    steps:
+      - intent: with_need_check
+      - action: question_parser
+  - story: with_belong
+    steps:
+      - intent: with_belong
+      - action: question_parser

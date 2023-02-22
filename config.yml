@@ -1,0 +1,34 @@
+# Configuration for Rasa NLU.
+# https://rasa.com/docs/rasa/nlu/components/
+recipe: default.v1
+language: zh
+pipeline:
+  - name: "JiebaTokenizer"
+  - name: "CountVectorsFeaturizer"
+    # Analyzer to use, either 'word', 'char', or 'char_wb'
+    "analyzer": "word"
+    # Set the lower and upper boundaries for the n-grams
+    "min_ngram": 1
+    "max_ngram": 1
+    # Set the out-of-vocabulary token
+    #"OOV_token": "_oov_"
+    # Whether to use a shared vocab
+    "use_shared_vocab": False
+  - name: "DIETClassifier"
+    constrain_similarities: True
+    epochs: 50
+
+
+# Configuration for Rasa Core.
+# https://rasa.com/docs/rasa/core/policies/
+
+policies:
+- name: "TEDPolicy"
+  epochs: 50
+  constrain_similarities: True
+- name: "MemoizationPolicy"
+  max_history: 5
+
+
+
+

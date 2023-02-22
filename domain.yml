@@ -1,0 +1,89 @@
+version: "3.1"
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+  - greet
+  - goodbye
+  - with_has_symptom
+  - with_cause
+  - with_acompany_with
+  - with_Food
+  - with_Drug
+  - with_prevent
+  - with_cure_lasttime
+  - with_cure_way
+  - with_cured_prob
+  - with_easy_get
+  - with_need_check
+  - with_belong
+  - with_usefulness
+
+
+actions:
+  - utter_greet
+  - utter_goodbye
+  - question_parser
+  - defualt_action
+
+
+templates:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+
+entities:
+  - disease
+  - department
+  - check
+  - drug
+  - food
+  - producer
+  - symptom
+
+slots:
+  disease:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: disease
+
+  department:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: department
+  check:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: check
+  drug:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: drug
+  food:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: food
+  producer:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: producer
+  symptom:
+    type: any
+    mappings:
+      - type: from_entity
+        entity: symptom
+
+responses:
+  utter_greet:
+  - text: "Hi there!"
+  utter_goodbye:
+  - text: "See you!"
