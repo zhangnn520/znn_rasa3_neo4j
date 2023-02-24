@@ -124,10 +124,6 @@ rasa run --enable-api --cors "*" 5005
 
 <img src="./img/image-20230221174823325.png" alt="image-20230221174823325" style="zoom: 50%;" />
 
-## 七、交流联系
-
-​	QQ：1356922176
-
 
 
 
