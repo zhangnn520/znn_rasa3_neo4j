@@ -1,0 +1,23 @@
+recipe: default.v1
+language: zh
+
+pipeline:
+- name: "MitieNLP"
+  model: "./data/total_word_feature_extractor_zh.dat"
+- name: "JiebaTokenizer"
+  dictionary_path: "/home/znn/znn_data/model/rasa3_neo4j/entity_dict"
+- name: LanguageModelFeaturizer
+  model_name: bert
+  model_weights: "./bert-base-chinese"
+- name: "RegexFeaturizer"
+- name: "DIETClassifier"
+  epochs: 50
+  constrain_similarities: True
+
+
+policies:
+- name: "TEDPolicy"
+  epochs: 50
+  constrain_similarities: True
+- name: "MemoizationPolicy"
+  max_history: 5
