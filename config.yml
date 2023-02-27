@@ -1,26 +1,19 @@
-# Configuration for Rasa NLU.
-# https://rasa.com/docs/rasa/nlu/components/
 recipe: default.v1
 language: zh
+
 pipeline:
-  - name: "JiebaTokenizer"
-  - name: "CountVectorsFeaturizer"
-    # Analyzer to use, either 'word', 'char', or 'char_wb'
-    "analyzer": "word"
-    # Set the lower and upper boundaries for the n-grams
-    "min_ngram": 1
-    "max_ngram": 1
-    # Set the out-of-vocabulary token
-    #"OOV_token": "_oov_"
-    # Whether to use a shared vocab
-    "use_shared_vocab": False
-  - name: "DIETClassifier"
-    constrain_similarities: True
-    epochs: 50
+- name: "MitieNLP"
+  model: "./data/total_word_feature_extractor_zh.dat"
+- name: "JiebaTokenizer"
+  dictionary_path: "/home/znn/znn_data/model/rasa3_neo4j/entity_dict"
+- name: LanguageModelFeaturizer
+  model_name: bert
+  model_weights: "./bert-base-chinese"
+- name: "RegexFeaturizer"
+- name: "DIETClassifier"
+  epochs: 50
+  constrain_similarities: True
 
-
-# Configuration for Rasa Core.
-# https://rasa.com/docs/rasa/core/policies/
 
 policies:
 - name: "TEDPolicy"
@@ -28,7 +21,3 @@ policies:
   constrain_similarities: True
 - name: "MemoizationPolicy"
   max_history: 5
-
-
-
-

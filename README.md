@@ -2,7 +2,7 @@
 
 原项目git地址：https://github.com/SonOfGod777/Neo4j-Rasa
 
-我的项目打包地址：https://pan.baidu.com/s/1qkssWEviKguXOFGyVg5QLA?pwd=6666  提取码：6666
+我的项目打包地址：https://pan.baidu.com/s/1h3RPpCOw2Ww0Blti1qK5EA?pwd=6666  提取码：6666
 
 ## 一、环境准备
 
@@ -43,12 +43,14 @@
 
 ## 三、软件环境
 
-​	requirment.txt如下所示，这里的rasa为3.1.0 版本。具体安装包版本可以参照conda.txt。
+​	requirment.txt如下所示，这里的rasa为1.3版本。具体安装包版本可以参照conda.txt。
 
 ```
-py2neo==2021.1.5
-rasa_sdk==3.4.0
-requests==2.28.2
+	py2neo==2021.1.5
+	rasa_sdk==1.3.3
+	redis==3.3.11
+	rasa==1.3.1
+	requests==2.27.1
 ```
 
 ​	安装环境是坑，尤其是作者没有给出requirment.txt，也不清楚rasa什么版本，rasa train的时候，我从二、三版本逐一实验，均未成功。希望能帮助后来人进行学习和研究。
@@ -75,7 +77,7 @@ requests==2.28.2
 
 ### 5.2、执行交互
 
-`rasa shell --endpoints conf/endpoints.yml`
+`rasa shell --endpoints endpoints.yml`
 
 ### 5.3、请求服务
 
@@ -123,6 +125,7 @@ rasa run --enable-api --cors "*" 5005
 ### 6.2、单轮对话
 
 <img src="./img/image-20230221174823325.png" alt="image-20230221174823325" style="zoom: 50%;" />
+
 
 
 
